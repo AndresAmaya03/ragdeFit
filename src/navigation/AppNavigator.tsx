@@ -18,11 +18,8 @@ const AppNavigator = () => {
     return (
         <Stack.Navigator initialRouteName="MainMenu">
             <Stack.Screen name="MainMenu" component={MainMenuScreen} options={{ title: '' }} />
-            <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Inicio de Sesión' }} />
-            <Stack.Screen name="Register" component={RegisterScreen} options={{ title: 'Registro Usuario' }} />
             <Stack.Screen name="Chat" component={ChatScreen} options={{ title: 'CHAT' }} />
             <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ title: 'PRINCIPAL' }} />
-            <Stack.Screen name="Personalization" component={PersonalizationScreen} options={{ title: 'Personalización' }} />
             <Stack.Screen name="Biometrics" component={BiometricsScreen} options={{ title: 'DATOS BIOMETRICOS' }} />
             {/* Add other screens here */}
         </Stack.Navigator>

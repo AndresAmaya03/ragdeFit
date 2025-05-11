@@ -16,20 +16,11 @@ const MainMenuScreen: React.FC<RootStackScreenProps<'MainMenu'>> = () => { // Us
                     style={styles.logo}
                     resizeMode="cover"
                 />
-                <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('Login')}>
-                    Iniciar Sesión
-                </Button>
-                <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('Register')}>
-                    Registro Usuario
-                </Button>
                 <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('Dashboard')}>
                     Principal
                 </Button>
                 <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('Biometrics')}>
                     Datos Biométricos
-                </Button>
-                <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('Personalization')}>
-                    Personalización
                 </Button>
                 <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('Chat')}>
                     CHAT

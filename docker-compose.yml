@@ -1,14 +1,31 @@
 version: '3.8'
 
 services:
-  postgres-db:
-    image: postgres:15.3
-    restart: always
+  postgres:
+    image: postgres:15
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ragdefit
+      POSTGRES_USER: ragdefit_user
+      POSTGRES_PASSWORD: secretpassword
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - 5432:5432
+      - "5432:5432"
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file: ./backend/.env
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/app
+    ports:
+      - "3000:3000"
+    command: npm run dev
+
+volumes:
+  pgdata:
+
